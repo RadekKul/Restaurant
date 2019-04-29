@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Tables</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Number Of Seats </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${tables.empty}">
+        <td colspan="2"> No tables Available </td>
+    </tr>
+    <tr th:each="table : ${tables}">
+        <td><span th:text="${table.name}"> Name </span></td>
+        <td><span th:text="${table.numberOfSeats}"> Name </span></td>
+    </tr>
+    </tbody>
+</table>
+<select>
+    <option value="0" th:selected="0">Wybierz stolik</option>
+    <option th:each="i : ${tables}" th:value="${i.id}" th:text="${i.name}"
+            th:selected="${i.id}"></option>
+</select>
+</body>
+</html>
