@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding Item</title>
+</head>
+<body>
+
+
+<form th:action="@{admin/dataUpdate/addItem}" th:object="${item}" method="post">
+
+    <label for="name"> Item Name</label>
+    <input id="name" th:field="*{name}" th:placeholder="Nazwa"/> <br><br>
+    <span th:errors="*{name}" style="color: red; float: left;" />
+    <label for="price"> Price</label>
+    <input id="price" th:field="*{price}" th:placeholder="Cena"/><br><br>
+    <label for="description"> Description</label>
+    <input id="description" th:field="*{description}" th:placeholder="Opis"/><br><br>
+
+    <!-- zrobic tu tak zeby mozna bylo wybrac z typu menu do ktorego chcemy dodac dany item i zeby przekazac w modelach id z menu zeby wpisalo menu_id w itemie-->
+
+    <select>
+        <label for="menu_id">Menu type:</label>
+        <option value="0" th:selected="0">Item type</option>
+        <option th:each="i : ${menus}" th:value="${i.id}" th:text="${i.type}"
+                id ="menu_id" th:selected="${i.id}"></option>
+    </select>
+
+
+    <button type="submit">Add Item</button>
+
+</form>
+
+</body>
+</html>

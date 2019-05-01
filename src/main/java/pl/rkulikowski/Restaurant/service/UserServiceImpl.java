@@ -12,14 +12,12 @@ import pl.rkulikowski.Restaurant.model.User;
 
 import java.util.*;
 
-@Service    //   jak komponent tylko inna nazwa zeby bylo wiadomo
-public class UserServiceImpl implements UserService {   // to jest klasa ktora potem uzyje sie w Controlerze np do tworzenia uzytkownika, implementuje UserService z tymi metodami.
+@Service
+public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private RoleRepository roleRepository;
 
-
-    //konstruktor do wstrzykiwania zaleznosci  - zamiast autowired
     public UserServiceImpl(UserRepository userRepository, @Lazy BCryptPasswordEncoder bCryptPasswordEncoder, RoleRepository roleRepository){
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -30,21 +28,15 @@ public class UserServiceImpl implements UserService {   // to jest klasa ktora p
     public void save(User user) {
 
         try {
-
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             Role roleOfUser = roleRepository.findRoleByName("ROLE_USER");
             user.setRoles(new HashSet<>(Collections.singletonList(roleOfUser)));
         }catch (DataAccessException e){
             e.printStackTrace();
         }
-        //user.setRoles(new HashSet<>(roleRepository.findAll()));
-        //user.setRoles(roleUserSet);
-        user.setEnabled(true); // sprawdzic czy to dziala czy w mysql jest ok
-
+        user.setEnabled(true);
         userRepository.save(user);
     }
-
-    // te dwie metody moga sie przydac pozniej w modyfikowaniu uzytkownikow itd.
 
     @Override
     public User findByUsername(String username) {

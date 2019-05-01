@@ -17,8 +17,8 @@
         <td colspan="2"> No tables Available </td>
     </tr>
     <tr th:each="table : ${tables}">
-        <td><span th:text="${table.name}"> Name </span></td>
-        <td><span th:text="${table.numberOfSeats}"> Name </span></td>
+        <td><span th:text="${table.name}"></span></td>
+        <td><span th:text="${table.numberOfSeats}"></span></td>
     </tr>
     </tbody>
 </table>
@@ -27,5 +27,27 @@
     <option th:each="i : ${tables}" th:value="${i.id}" th:text="${i.name}"
             th:selected="${i.id}"></option>
 </select>
+
+<table>
+    <thead>
+    <tr>
+        <th> Type </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${menus.empty}">
+        <td colspan="2"> No items Available </td>
+    </tr>
+    <tr th:each="menu : ${menus}">
+        <td><span th:text="${menu.type}"> Type </span></td>
+    </tr>
+    </tbody>
+</table>
+<select>
+    <option value="0" th:selected="0">Wybierz Menu</option>
+    <option th:each="i : ${menus}" th:value="${i.id}" th:text="${i.type}"
+            th:selected="${i.id}"></option>
+</select>
+
 </body>
 </html>

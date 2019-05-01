@@ -8,7 +8,7 @@ import pl.rkulikowski.Restaurant.model.SecurityUser;
 import pl.rkulikowski.Restaurant.model.User;
 
 @Component
-public class CustomUserDetailsService implements UserDetailsService {   // sprawdzanie czy jest taki uzytkownik jaki zostanie wpisany
+public class CustomUserDetailsService implements UserDetailsService {
 
     private UserService userService;
 

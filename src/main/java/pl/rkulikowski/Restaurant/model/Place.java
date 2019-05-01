@@ -33,12 +33,10 @@ public class Place {
     // pole opcjonalne, jak sie nic nie wpisze to 1h
     private int reservationTime;
 
-
     public Place() {
         this.reserved = false;
-        this.reservationTime = 1;   // defaultowa dlugosc rezerwacji to 1 H
+        this.reservationTime = 1;   // defaultowa dlugosc rezerwacji to 1h
     }
-
 
     public long getId() {
         return id;

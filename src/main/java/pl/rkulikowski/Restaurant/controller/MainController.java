@@ -25,20 +25,15 @@ import javax.validation.Valid;
 //TODO: porobic widoki stron zeby to juz jakos wygladalo
 //TODO: panel admina - struktura + przyciski ktore przenosza w dane miejsce
 
-
-//TODO: https://bootsnipp.com/snippets/X04B0 , z tej strony sa pobrane widoki zeby nie bawic sie w css i js
-
-//TODO: pamietac o zmianie nazwanych pól w szablonie form.js i zmienic je na nazwy swoich pol z ktoryhc bedziesz
-// korzystal w login/registration
+//TODO: pamietac o zmianie nazwanych pól w form.js i zmienic je na nazwy swoich pol
 
 // bootstrap - framework do css, mozna automatycznie oscylowac w latwiejszy sposob niz pisac te podstawowe metody
 //jquery - framework do js, latwiejszy sposob do dynamicznych zmian na stronie
 
-
 @Controller
 public class MainController {
 
-    private UserService userService;    // robimy sobie implementacje user serbice, mamy tam metode z authentication, dopisujemy getprincipal i mamy obiekt ktory jest obecnie zalogowany
+    private UserService userService;
     private UserValidator userValidator;
 
     public MainController(UserService userService, UserValidator userValidator) {
@@ -46,12 +41,11 @@ public class MainController {
         this.userValidator = userValidator;
     }
 
-        // Wstrzyknac trzeba zaleznosc bcrypt do service i zakodowac haslo i potem userRepository save()
-        //UserController ma odebrac obiekt usera i przekazad do UserService zeby zakodowal haslo i zapisal Usera do bazy
-        // metoda kontrolera musi przyjmowac model czyli np reigster(Model model) i potem model.addAttribute("user",new User()), a w widoku na formularzu trzeba zmapowac tego usera do pol
-        // i potem sam bedzie mi juz przypisywal to co jest wpisane , Potem tworzy sie metode post i odebrac juz wypelniony model usera i przekazac do service zeby zakodowal haslo i wypchnal do bazy
-        // hibernatem jeszcze mozna wprowadzic po drodze validacje, poprawne haslo, dlugosc itp
-        // zrobic ten model tu w Controlerze albo w UserController i nowy widok registration i tam sprobowac stworzyc nowego usera
+      // Wstrzyknac trzeba zaleznosc bcrypt do service i zakodowac haslo i potem userRepository save()
+      //UserController ma odebrac obiekt usera i przekazad do UserService zeby zakodowal haslo i zapisal Usera do bazy
+      // metoda kontrolera musi przyjmowac model czyli np reigster(Model model) i potem model.addAttribute("user",new User()), a w widoku na formularzu trzeba zmapowac tego usera do pol
+      // i potem sam bedzie mi juz przypisywal to co jest wpisane , Potem tworzy sie metode post i odebrac juz wypelniony model usera i przekazac do service zeby zakodowal haslo i wypchnal do bazy
+      // hibernatem jeszcze mozna wprowadzic po drodze validacje, poprawne haslo, dlugosc itp
 
     @RequestMapping(value = "/login/form", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
@@ -97,13 +91,6 @@ public class MainController {
         return "/account/panelUser";
     }
 
-    // co za roznica jest tutaj w get i w post, czy ma znaczenie co potem wpisalem na widoku?
-
-    // stworzylo usera ale nadalo mu prawa i admin i user pewnie przez findall() w userService
-    // naprawic to ze user z prawami usera moze wejsc do paneluAdmina
-    // dlaczego jak przekierowuje do /login po logowaniu to dostaje error? a np w panelAdmin wszystko dziala
-    //
-
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration (Model model){
         model.addAttribute("user",new User());
@@ -123,7 +110,6 @@ public class MainController {
 
         return "redirect:/account/loginPage";
     }
-
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String homePage() {
