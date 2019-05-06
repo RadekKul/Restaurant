@@ -21,8 +21,6 @@ public class MenuValidator implements Validator {
         return Menu.class.equals(aClass);
     }
 
-    //TODO: nadpisac defaultowy blad przy wpisaniu czego innego niz float w validatorach
-
     @Override
     public void validate(Object o, Errors errors) {
         Menu menu = (Menu) o;

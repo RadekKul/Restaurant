@@ -22,9 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-// bootstrap - framework do css, mozna automatycznie oscylowac w latwiejszy sposob niz pisac te podstawowe metody
-//jquery - framework do js, latwiejszy sposob do dynamicznych zmian na stronie
-
 @Controller
 public class MainController {
 
@@ -38,7 +35,7 @@ public class MainController {
 
     @RequestMapping(value = "/login/form", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
-        if (error != null)  // zle logowanie
+        if (error != null)
             model.addAttribute("loginError", true);
 
         if (logout != null)

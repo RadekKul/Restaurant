@@ -48,10 +48,6 @@ public class AdminController {
         return "/admin/dataUpdate/addItem";
     }
 
-    // TODO: zrobic widok rejestracji, powalczy z tym jquery tez
-
-    // celowo pozostawiona metoda POST zeby pozostac przy jednej nazwie metody (mimo ze nie przekazujemy wrazliwych danych)
-
     @RequestMapping(value = "/dataUpdate/addItem", method = RequestMethod.POST)
     public String addItem (@Valid @ModelAttribute("item") Item item, BindingResult bindingResult, Model model){
 

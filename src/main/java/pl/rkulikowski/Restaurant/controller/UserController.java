@@ -23,9 +23,7 @@ public class UserController {
         this.menuService = menuService;
     }
 
-    // TODO: za pomoca jquery zrobic pokolei to wyswietlanie kolejnych czesci zamowienia po wybraniu poprzednich
-    //  i tam trzeba dac validacje czy ktos wybral np value != 0 jezeli tak to nastepne opcje sie wyswietlaja, jezeli nie to sie ukrywaja. i zamiast change to zrobic.
-    //  Takimi modelami pokolei trzeba to dodawac i na koncu zapisac w bill
+
 
 
     @GetMapping("/booking")

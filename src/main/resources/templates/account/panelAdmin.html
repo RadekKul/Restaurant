@@ -6,7 +6,6 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script th:src="@{/js/jquery-3.4.0.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/menu.js}"></script>
     <link th:href="@{/css/menu.css}" rel="stylesheet"/>
     <title>Admin Panel</title>
 </head>
@@ -21,10 +20,10 @@ Proszę wybrać akcję jaką chcesz wykonać
     <div class="row">
         <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked admin-menu">
-                <li><a href="/" th:href="@{/admin/dataUpdate/addItem}" data-target-id="item" ><i class="fa fa-list-alt fa-fw"></i>Add Item</a></li>
-                <li><a href="/" th:href="@{/admin/dataUpdate/addMenu}" data-target-id="menu"><i class="fa fa-list-alt fa-fw"></i>Add Menu</a></li>
-                <li><a href="/" th:href="@{/admin/dataUpdate/addTable}" data-target-id="table"><i class="fa fa-list-alt fa-fw"></i>Add Table</a></li>
-                <li><a href="/" th:href="@{/logout}" data-target-id="logout"><i class="fa fa-cogs fa-fw"></i>Logout</a></li>
+                <li><a th:href="@{/admin/dataUpdate/addItem}" ><i class="fa fa-list-alt fa-fw"></i>Add Item</a></li>
+                <li><a th:href="@{/admin/dataUpdate/addMenu}" ><i class="fa fa-list-alt fa-fw"></i>Add Menu</a></li>
+                <li><a th:href="@{/admin/dataUpdate/addTable}" ><i class="fa fa-list-alt fa-fw"></i>Add Table</a></li>
+                <li><a th:href="@{/logout}" ><i class="fa fa-cogs fa-fw"></i>Logout</a></li>
             </ul>
         </div>
     </div>
