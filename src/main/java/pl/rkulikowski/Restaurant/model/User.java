@@ -30,7 +30,7 @@ public class User implements Serializable {
     //@Min(value = 8, message ="Podane hasło powinno mieć conajmniej 8 znaków")
     //@Max(value = 25, message ="Podane hasło może mieć maksymalnie 25 znaków")
     private String password;
-    @Transient  // to co jest z tym tagiem nie bedzie wpisywane do tabeli w SQL
+    @Transient
     private String passwordConfirm;
     private String email;
     @Transient
@@ -41,8 +41,6 @@ public class User implements Serializable {
    /* @OneToMany(mappedBy = "user")
     private Set<Bill> orders = new HashSet<>();*/
 
-    // to jest tabela zlaczeniowa i jest tutaj opisana zaleznosc pomiedzy ta tabela po czym joinujemy, jaka nazwa itd
-    // joinuje nam user_id czyli z klasy user bierze pole id i łaczy z tym co zostanie zwrocone z drugiej tabeli czyli z classy Role wezmie pole id
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;

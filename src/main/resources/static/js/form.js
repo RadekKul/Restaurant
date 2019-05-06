@@ -23,42 +23,26 @@
         errorClass: "form-invalid"
     });
 
-    // Form Submission
-    $("#login-form").submit(function() {
-        remove_loading($(this));
-
-        if(options['useAJAX'] == true)
-        {
-            // Dummy AJAX request (Replace this with your AJAX code)
-            // If you don't want to use AJAX, remove this
-            dummy_submit_form($(this));
-
-            // Cancel the normal submission.
-            // If you don't want to use AJAX, remove this
-            return false;
-        }
-    });
-
     // Register Form
     //----------------------------------------------
     // Validation
     $("#register-form").validate({
         rules: {
-            reg_username: "required",
-            reg_password: {
+            username: "required",
+            password: {
                 required: true,
                 minlength: 5
             },
-            reg_password_confirm: {
+            passwordConfirm: {
                 required: true,
                 minlength: 5,
                 equalTo: "#register-form [name=reg_password]"
             },
-            reg_email: {
+            email: {
                 required: true,
                 email: true
             },
-            reg_agree: "required",
+            agree: "required",
         },
         errorClass: "form-invalid",
         errorPlacement: function( label, element ) {
@@ -71,22 +55,6 @@
         }
     });
 
-    // Form Submission
-    $("#register-form").submit(function() {
-        remove_loading($(this));
-
-        if(options['useAJAX'] == true)
-        {
-            // Dummy AJAX request (Replace this with your AJAX code)
-            // If you don't want to use AJAX, remove this
-            dummy_submit_form($(this));
-
-            // Cancel the normal submission.
-            // If you don't want to use AJAX, remove this
-            return false;
-        }
-    });
-
     // Forgot Password Form
     //----------------------------------------------
     // Validation
@@ -95,22 +63,6 @@
             fp_email: "required",
         },
         errorClass: "form-invalid"
-    });
-
-    // Form Submission
-    $("#forgot-password-form").submit(function() {
-        remove_loading($(this));
-
-        if(options['useAJAX'] == true)
-        {
-            // Dummy AJAX request (Replace this with your AJAX code)
-            // If you don't want to use AJAX, remove this
-            dummy_submit_form($(this));
-
-            // Cancel the normal submission.
-            // If you don't want to use AJAX, remove this
-            return false;
-        }
     });
 
     // Loading
@@ -136,21 +88,6 @@
     {
         $form.find('[type=submit]').addClass('error').html(options['btn-error']);
         $form.find('.login-form-main-message').addClass('show error').html(options['msg-error']);
-    }
-
-    // Dummy Submit Form (Remove this)
-    //----------------------------------------------
-    // This is just a dummy form submission. You should use your AJAX function or remove this function if you are not using AJAX.
-    function dummy_submit_form($form)
-    {
-        if($form.valid())
-        {
-            form_loading($form);
-
-            setTimeout(function() {
-                form_success($form);
-            }, 2000);
-        }
     }
 
 })(jQuery);

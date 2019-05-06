@@ -8,22 +8,10 @@
     <script th:src="@{/js/form.js}"></script>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/css/form.css}" rel="stylesheet"/>
-
 </head>
 <body>
 <h1>Login page</h1>
-<!--<p th:if="${loginError}" class="error">Wrong user or password</p>
-<form th:action="@{/login}" method="post">
-    <label for="username">Username</label>:
-    <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
-    <label for="password">Password</label>:
-    <input type="password" id="password" name="password" /> <br />
-    <input type="submit" value="Log in" /> <br/><br>
-    <input type="button"  onclick="location.href='/registration'" value="Register" >
-</form>-->
 
-
-<!-- LOGIN FORM -->
 <div class="text-center" style="padding:50px 0">
     <div class="logo">login</div>
     <!-- Main Form -->
@@ -44,7 +32,7 @@
                 <button type="submit" onclick="location.href='/registration'" value="Register" class="login-button"><i class="fa fa-chevron-right"></i></button>
             </div>
             <div class="etc-login-form">
-                <p>new user? <a th:href="@{/registration}">create new account</a></p>
+                <p>Nowy użytkownik? <a th:href="@{/registration}">Zarejestruj się</a></p>
             </div>
         </form>
     </div>

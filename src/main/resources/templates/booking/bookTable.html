@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Booking Tables</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+   <!-- <script>
+        $(function() {
+            $('#table_list').change(function(){
+                $('#menu_list').show();
+                if()
+            });
+        });
+    </script>-->
 </head>
 <body>
 <table>
     <thead>
     <tr>
+
         <th> Name </th>
         <th> Number Of Seats </th>
     </tr>
@@ -22,7 +35,7 @@
     </tr>
     </tbody>
 </table>
-<select>
+<select id="table_list">
     <option value="0" th:selected="0">Wybierz stolik</option>
     <option th:each="i : ${tables}" th:value="${i.id}" th:text="${i.name}"
             th:selected="${i.id}"></option>
@@ -43,7 +56,7 @@
     </tr>
     </tbody>
 </table>
-<select>
+<select id="menu_list" style="display: none;">
     <option value="0" th:selected="0">Wybierz Menu</option>
     <option th:each="i : ${menus}" th:value="${i.id}" th:text="${i.type}"
             th:selected="${i.id}"></option>

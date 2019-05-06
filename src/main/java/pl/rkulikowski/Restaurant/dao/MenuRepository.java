@@ -11,4 +11,5 @@ import java.util.Set;
 public interface MenuRepository extends JpaRepository<Menu,Long> {
 
     List<Menu> findAll();
+    Menu findByType(String type);
 }

@@ -20,4 +20,14 @@ public class PlaceServiceImpl implements PlaceService{
     public Set<Place> findFreeTables() {
         return placeRepository.findAllByReserved(false); // wywolanie przez service tego co jest w dao z wartoscia false czyli wsyzstkie wolne stoliki
     }
+
+    @Override
+    public Place findByName(String name) {
+        return placeRepository.findByName(name);
+    }
+
+    @Override
+    public void save(Place place) {
+        placeRepository.save(place);
+    }
 }

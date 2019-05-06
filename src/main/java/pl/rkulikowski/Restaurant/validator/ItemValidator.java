@@ -11,18 +11,26 @@ public class ItemValidator implements Validator {
 
     ItemService itemService;
 
+    public ItemValidator(ItemService itemService) {
+        this.itemService = itemService;
+    }
+
     @Override
     public boolean supports(Class<?> aClass) {
         return Item.class.equals(aClass);
     }
 
+
     @Override
     public void validate(Object o, Errors errors) {
         Item item = (Item) o;
 
-        if(itemService.findByName(item.getName()) != null){
+        if (itemService.findByName(item.getName()) != null) {
             errors.rejectValue("name", "registration.item.name");
         }
 
+        if (item.getPrice() == null) {
+            errors.rejectValue("price","registration.item.price");
+        }
     }
 }

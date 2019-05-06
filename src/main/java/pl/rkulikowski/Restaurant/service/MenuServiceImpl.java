@@ -5,7 +5,6 @@ import pl.rkulikowski.Restaurant.dao.MenuRepository;
 import pl.rkulikowski.Restaurant.model.Menu;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class MenuServiceImpl implements MenuService {
@@ -19,5 +18,15 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public List<Menu> findAll() {
         return menuRepository.findAll();
+    }
+
+    @Override
+    public void save(Menu menu) {
+        menuRepository.save(menu);
+    }
+
+    @Override
+    public Menu findByType(String type) {
+        return menuRepository.findByType(type);
     }
 }

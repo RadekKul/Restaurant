@@ -22,11 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-//TODO: porobic widoki stron zeby to juz jakos wygladalo
-//TODO: panel admina - struktura + przyciski ktore przenosza w dane miejsce
-
-//TODO: pamietac o zmianie nazwanych pól w form.js i zmienic je na nazwy swoich pol
-
 // bootstrap - framework do css, mozna automatycznie oscylowac w latwiejszy sposob niz pisac te podstawowe metody
 //jquery - framework do js, latwiejszy sposob do dynamicznych zmian na stronie
 
@@ -41,12 +36,6 @@ public class MainController {
         this.userValidator = userValidator;
     }
 
-      // Wstrzyknac trzeba zaleznosc bcrypt do service i zakodowac haslo i potem userRepository save()
-      //UserController ma odebrac obiekt usera i przekazad do UserService zeby zakodowal haslo i zapisal Usera do bazy
-      // metoda kontrolera musi przyjmowac model czyli np reigster(Model model) i potem model.addAttribute("user",new User()), a w widoku na formularzu trzeba zmapowac tego usera do pol
-      // i potem sam bedzie mi juz przypisywal to co jest wpisane , Potem tworzy sie metode post i odebrac juz wypelniony model usera i przekazac do service zeby zakodowal haslo i wypchnal do bazy
-      // hibernatem jeszcze mozna wprowadzic po drodze validacje, poprawne haslo, dlugosc itp
-
     @RequestMapping(value = "/login/form", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
         if (error != null)  // zle logowanie
@@ -55,9 +44,6 @@ public class MainController {
         if (logout != null)
             model.addAttribute("logoutMessage", true);
 
-        //TODO: zrobic validator, jest zrobiony na username i confirmpassword
-
-// dopiero tutaj nas przenosi na widok login, gdzie wpisujemy dane(a tak dokladnie to tylko wyswietla ten widok)
         return "account/login";
     }
 
@@ -72,7 +58,6 @@ public class MainController {
                 .anyMatch(authority -> authority.equals(SecurityConst.ADMIN_ROLE_NAME));
 
         if (isAdmin) {
-            System.out.println("Zalogowano poprawnie, przeniesiono do panelu administratora");
             return "redirect:/account/panelAdmin";
         }
 

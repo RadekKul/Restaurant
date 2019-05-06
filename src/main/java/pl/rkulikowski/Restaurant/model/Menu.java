@@ -2,6 +2,7 @@ package pl.rkulikowski.Restaurant.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ public class Menu {
     private String type;
 
     @OneToMany(mappedBy = "menu")
-    private Set<Item> items;
+    private Set<Item> items = new HashSet<>();
 
     public long getId() {
         return id;

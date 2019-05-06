@@ -7,4 +7,6 @@ import java.util.Set;
 public interface PlaceService {
 
     Set<Place> findFreeTables();
+    Place findByName(String name);
+    void save(Place place);
 }

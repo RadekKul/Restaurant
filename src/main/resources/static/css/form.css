@@ -1,15 +1,4 @@
-/*
-1. General Structure
-2. Anchor Link
-3. Text Outside the Box
-4. Main Form
-5. Login Button
-6. Form Invalid
-7. Form - Main Message
-8. Custom Checkbox & Radio
-9. Misc
- -------------------------------------------------------------------*!
-=== 1. General Structure ===*/
+/*=== 1. General Structure ===*/
 html,
 body {
     background: #efefef;

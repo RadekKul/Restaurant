@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding Table</title>
+</head>
+<body>
+
+
+<form th:object="${table}" method="post">
+
+    <label for="name"> Table Name</label>
+    <input id="name" th:field="*{name}" th:placeholder="Nazwa"/> <br><br>
+    <span th:errors="*{name}" style="color: red; float: left;" />
+    <label for="numberOfSeats"> Number of Seats</label>
+    <input id="numberOfSeats" th:field="*{numberOfSeats}"/><br><br>
+    <span th:errors="*{numberOfSeats}" style="color: red; float: left;" />
+
+
+    <button type="submit">Add Table</button>
+
+</form>
+
+</body>
+</html>
+

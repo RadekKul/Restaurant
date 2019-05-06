@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,11 +23,11 @@ public class Place {
     private int numberOfSeats;
 
     @OneToMany(mappedBy = "place")
-    private Set<Bill> bills;
+    private Set<Bill> bills = new HashSet<>();
 
     private boolean reserved;
 
-    @CreationTimestamp
+    //@CreationTimestamp
     @Temporal(TemporalType.DATE)
     private Date reservationDate;
 

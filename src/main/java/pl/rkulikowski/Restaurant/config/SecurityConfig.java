@@ -13,7 +13,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import pl.rkulikowski.Restaurant.service.CustomUserDetailsService;
 import pl.rkulikowski.Restaurant.utils.SecurityConst;
 
-@Configuration  // jest to klasa konfiguracyjna, moze posiadac beany zeby potem sie do nich odwolywac , beda one dostpene w calej aplikacji
+@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomUserDetailsService customUserDetailsService;
 
@@ -26,7 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         registry.userDetailsService(customUserDetailsService);
     }
 
-    // to jest confgiuracja potrzebna zeby znajdowalo sobie pliki w folderach
     @Override
     public void configure(WebSecurity web) {
         web.ignoring()
@@ -34,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {  // w anyMatches dodajemy akcje ktore beda dostepne dla (permitAll-dla wszystkich, ADMIN- dla adminow, USER-dla userow)
+    protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .authorizeRequests()

@@ -10,4 +10,5 @@ import java.util.Set;
 public interface PlaceRepository extends JpaRepository<Place,Long> {
 
     Set<Place> findAllByReserved(boolean reserved);
+    Place findByName(String name);
 }
