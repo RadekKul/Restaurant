@@ -1,4 +1,5 @@
 # Rejestrator (w trakcie rozwoju)
+
 Restauracja to aplikacja umożliwiająca zarejestrowanemu użytkownikowi rezerwację stolika na wybraną godzinę oraz zamówienia posiłku. 
 
 Administrator ma możliwość dodawania nowych produktów / dań / menu oraz stolików, które  są przechowywane w bazie danych.
@@ -28,10 +29,24 @@ W projekcie wykorzystywane są następujące technologie:
 * Maven - Narzędzie automatyzujące budowę oprogramowania na platformę Java
 
 ### Instalacja
+
 Aby uruchomić aplikację należy:
 * Sklonować repozytorium
 * Otworzyć repozytorium za pomocą IDE 
 * Uruchomić wbudowany serwer Tomcat, który automatycznie zbuduje i zdeployuje aplikację
-* Przykładowa baza danych na stronie: https://remotemysql.com/phpmyadmin/
-  login i hasło dostępne są w pliku z właściwościami aplikacji (application.properties).
+* Przykładowa baza danych dostępna jest na stronie: https://remotemysql.com/phpmyadmin/
+  login i hasło do serwisu dostępne są w pliku z właściwościami aplikacji (application.properties).
+  
+### Dane logowania
+
+Przy uruchomieniu aplikacji z "domyślną" bazą danych możemy skorzystać z użytkowników:
+
+Administrator
+L: admin
+P: admin
+
+User
+L: user1
+P: user
+
 
