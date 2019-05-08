@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Witamy!!!</title>
+    <meta charset="UTF-8">
+    <script th:src="@{/js/jquery-3.4.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/form.js}"></script>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/form.css}" rel="stylesheet"/>
+</head>
+<body>
+
+
+<div class="text-center" style="padding:50px 0">
+    <h1>Witamy w aplikacji Restaurant</h1>
+    W celu wykonania rezerwacji lub zamówienia zapraszamy do rejestracji lub logowania poprzez kliknięcie w jeden z poniższych linków.
+    <div class="login-form-1">
+        <form id="login-form" class="text-left">
+            <div class="etc-login-form">
+                <p>Masz już konto? <a href="/" th:href="@{/login/form}">Zaloguj się</a></p>
+                <p>Jesteś tu nowy? <a th:href="@{/registration}">Zarejestruj się</a></p>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>Welcome</h1>
+<h1>Witamy w aplikacji Restaurant</h1>
+
+W celu wykonania rezerwacji lub zamówienia zapraszamy do rejestracji lub logowania poprzez kliknięcie w jeden z poniższych linków.
+
+<p>Masz już konto? <a href="/" th:href="@{/login/form}">Zaloguj się</a></p>
+
+<p>Nowy użytkownik? <a th:href="@{/registration}">Zarejestruj się</a></p>
+
+
 </body>
 </html>
 
+-->

@@ -93,13 +93,13 @@ public class MainController {
         return "redirect:/account/loginPage";
     }
 
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    /*@RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String homePage() {
         return "index";
     }
+*/
 
-
-    @RequestMapping(value = {"/welcome"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String welcome() {
         return "welcome";
     }
