@@ -1,4 +1,4 @@
-# Rejestrator (w trakcie rozwoju)
+# Restauracja (w trakcie rozwoju)
 
 Restauracja to aplikacja umożliwiająca zarejestrowanemu użytkownikowi rezerwację stolika na wybraną godzinę oraz zamówienia posiłku. 
 
