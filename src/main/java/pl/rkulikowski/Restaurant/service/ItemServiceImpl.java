@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import pl.rkulikowski.Restaurant.dao.ItemRepository;
 import pl.rkulikowski.Restaurant.model.Item;
 
+import java.util.List;
+
 @Service
 public class ItemServiceImpl implements ItemService {
 
@@ -21,5 +23,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void save(Item item) {
         itemRepository.save(item);
+    }
+
+    @Override
+    public List<Item> findAllByMenuId(long id) {
+        return itemRepository.findAllByMenuId(id);
     }
 }

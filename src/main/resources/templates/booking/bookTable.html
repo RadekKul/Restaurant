@@ -17,10 +17,13 @@
     </script>-->
 </head>
 <body>
+
+
+<br/><br/>
+
 <table>
     <thead>
     <tr>
-
         <th> Name </th>
         <th> Number Of Seats </th>
     </tr>
@@ -41,6 +44,8 @@
             th:selected="${i.id}"></option>
 </select>
 
+<br/><br/>
+
 <table>
     <thead>
     <tr>
@@ -56,11 +61,130 @@
     </tr>
     </tbody>
 </table>
-<select id="menu_list" style="display: none;">
+<select id="menu_list" >
     <option value="0" th:selected="0">Wybierz Menu</option>
     <option th:each="i : ${menus}" th:value="${i.id}" th:text="${i.type}"
             th:selected="${i.id}"></option>
 </select>
+
+<br/><br/>
+
+<table>
+    <thead>
+    <tr>
+        <th> Dishes </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${dishes.empty}">
+        <td colspan="2"> No items Available </td>
+    </tr>
+    <tr th:each="dish : ${dishes}">
+        <td><span th:text="${dish.name}"> Dish </span></td>
+    </tr>
+    </tbody>
+</table>
+<select id="dishes_list" >
+    <option value="0" th:selected="0">Wybierz Danie</option>
+    <option th:each="i : ${dishes}" th:value="${i.id}" th:text="${i.name}"
+            th:selected="${i.id}"></option>
+</select>
+
+<br/><br/>
+
+<table>
+    <thead>
+    <tr>
+        <th> Drinks </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${drinks.empty}">
+        <td colspan="2"> No items Available </td>
+    </tr>
+    <tr th:each="drink : ${drinks}">
+        <td><span th:text="${drink.name}"> Drink </span></td>
+    </tr>
+    </tbody>
+</table>
+<select id="drinks_list" >
+    <option value="0" th:selected="0">Wybierz Napój</option>
+    <option th:each="i : ${drinks}" th:value="${i.id}" th:text="${i.name}"
+            th:selected="${i.id}"></option>
+</select>
+
+<br/><br/>
+
+<table>
+    <thead>
+    <tr>
+        <th> Pizzas </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${pizzas.empty}">
+        <td colspan="2"> No items Available </td>
+    </tr>
+    <tr th:each="pizza : ${pizzas}">
+        <td><span th:text="${pizza.name}"> Pizza </span></td>
+    </tr>
+    </tbody>
+</table>
+<select id="pizzas_list" >
+    <option value="0" th:selected="0">Wybierz Pizze</option>
+    <option th:each="i : ${pizzas}" th:value="${i.id}" th:text="${i.name}"
+            th:selected="${i.id}"></option>
+</select>
+
+<br/><br/>
+
+<table>
+    <thead>
+    <tr>
+        <th> Starters </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${starters.empty}">
+        <td colspan="2"> No items Available </td>
+    </tr>
+    <tr th:each="starter : ${starters}">
+        <td><span th:text="${starter.name}"> Starter </span></td>
+    </tr>
+    </tbody>
+</table>
+<select id="starters_list" >
+    <option value="0" th:selected="0">Wybierz Przystawkę</option>
+    <option th:each="i : ${starters}" th:value="${i.id}" th:text="${i.name}"
+            th:selected="${i.id}"></option>
+</select>
+
+<br/><br/>
+
+<table>
+    <thead>
+    <tr>
+        <th> Desserts </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${desserts.empty}">
+        <td colspan="2"> No items Available </td>
+    </tr>
+    <tr th:each="dessert : ${desserts}">
+        <td><span th:text="${dessert.name}"> Deser </span></td>
+    </tr>
+    </tbody>
+</table>
+<select id="desserts_list" >
+    <option value="0" th:selected="0">Wybierz Deser</option>
+    <option th:each="i : ${desserts}" th:value="${i.id}" th:text="${i.name}"
+            th:selected="${i.id}"></option>
+</select>
+
+<br/><br/>
+
+<p>Powrót do strony głównej: <a th:href="@{/account/panelUser}"> Home Page </a></p>
 
 </body>
 </html>
