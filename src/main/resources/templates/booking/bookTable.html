@@ -15,13 +15,54 @@
             });
         });
     </script>-->
+    <script>
+        $( document ).ready(function() {
+            $( "select[id=table_list]" ).click(function() {
+                $( "#typesOfMenu" ).toggle( "slow", function() {
+                    if($('select[id=table_list]').val() != 0){
+                        $('#typesOfMenu').css('visibility', 'visible');
+                    }
+                    else{
+                        $('#typesOfMenu').css('visibility', 'hidden');
+                    }
+                });
+            });
+
+            $( "select[id=menu_list]" ).click(function() {
+
+                $( "#dishesList" ).toggle( "fast", function() {
+                    var id = $('select[id=menu_list]').val();
+                    var divElement = $("#dishesMenu");
+                    if(id != 0){
+                        getMenuType(divElement,id);
+                        divElement.css('visibility', 'visible');
+                    }
+                    else{
+                        divElement.css('visibility', 'hidden');
+                    }
+                });
+            });
+        });
+
+
+        function getMenuType($contentDiv, $menuId) {
+            jQuery.ajax({
+                type : "GET",
+                url : "ajax/bookTable/menuType/"+ $menuId,
+                success : function(data) {
+                    $contentDiv.html(data);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 
 
 <br/><br/>
 
-<table>
+
+<table id="seatsTable">
     <thead>
     <tr>
         <th> Name </th>
@@ -46,52 +87,27 @@
 
 <br/><br/>
 
-<table>
-    <thead>
-    <tr>
-        <th> Type </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${menus.empty}">
-        <td colspan="2"> No items Available </td>
-    </tr>
-    <tr th:each="menu : ${menus}">
-        <td><span th:text="${menu.type}"> Type </span></td>
-    </tr>
-    </tbody>
-</table>
+<div id="typesOfMenu" style="visibility: hidden">
+<span th:if="${menus.empty}"> No items Available </span>
 <select id="menu_list" >
     <option value="0" th:selected="0">Wybierz Menu</option>
     <option th:each="i : ${menus}" th:value="${i.id}" th:text="${i.type}"
             th:selected="${i.id}"></option>
 </select>
+</div>
 
-<br/><br/>
-
-<table>
-    <thead>
-    <tr>
-        <th> Dishes </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${dishes.empty}">
-        <td colspan="2"> No items Available </td>
-    </tr>
-    <tr th:each="dish : ${dishes}">
-        <td><span th:text="${dish.name}"> Dish </span></td>
-    </tr>
-    </tbody>
-</table>
+<div id="dishesList" style="visibility: hidden">
+    <span th:if="${dishes.empty}"> No items Available </span>
 <select id="dishes_list" >
     <option value="0" th:selected="0">Wybierz Danie</option>
     <option th:each="i : ${dishes}" th:value="${i.id}" th:text="${i.name}"
             th:selected="${i.id}"></option>
 </select>
+</div>
 
-<br/><br/>
+<div id="dishesMenu" style="visibility: hidden"></div>
 
+<!--
 <table>
     <thead>
     <tr>
@@ -182,7 +198,7 @@
             th:selected="${i.id}"></option>
 </select>
 
-<br/><br/>
+<br/><br/>-->
 
 <p>Powrót do strony głównej: <a th:href="@{/account/panelUser}"> Home Page </a></p>
 

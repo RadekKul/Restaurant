@@ -1,0 +1,20 @@
+<table>
+    <thead>
+    <tr>
+        <th> Select Item </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${items.empty}">
+        <td colspan="2"> No items Available </td>
+    </tr>
+    <tr th:each="item : ${items}">
+        <td><input type="checkbox" th:value="${item.id}" /><span th:text="${item.name}"> Item </span></td>
+
+        <!-- dodac zamiast checkbox np jakis plus ktory bedzie dodawal mi to do listy itemow i to zapamietywal, dzieki temu po zmianie menuType beda zapamietane poprzednie wybory i na podstawie tego
+        przekaze sie potem dane do koszyka i tam dopiero sie ustawi ilosc, wszystko robic na odkliku, jak sie zaznaczy plus i odkliknie to dodaj do listy itd.
+
+        potem np mozna zrobic mape gdzie klucz to bedzie Item (obiekt) a wartosc to ilosc i + i - modyfikuja te ilosc i wyswietlaja dynamicznie-->
+    </tr>
+    </tbody>
+</table>

@@ -3,10 +3,15 @@ package pl.rkulikowski.Restaurant.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.rkulikowski.Restaurant.model.Item;
 import pl.rkulikowski.Restaurant.service.ItemService;
 import pl.rkulikowski.Restaurant.service.MenuService;
 import pl.rkulikowski.Restaurant.service.PlaceService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -47,6 +52,18 @@ public class UserController {
 
         return "/booking/bookTable";
     }
+
+
+
+    @RequestMapping(value = {"ajax/bookTable/menuType/{menuId}"})
+    public String getTypeOfMenu(Model model, @PathVariable long menuId) {
+        List<Item> selectedItems = new ArrayList<>();
+        model.addAttribute("selectedItems",selectedItems);
+        model.addAttribute("items", itemService.findAllByMenuId(menuId));
+        return "/booking/ajaxItemMenu";
+    }
+
+
 
 
 }
