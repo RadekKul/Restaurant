@@ -32,9 +32,6 @@ public class UserController {
         this.itemService = itemService;
     }
 
-
-
-    //TODO: Zmienic tak controllery i front zeby dzialaly na AJAX i ladowaly tylko to co jest potrzebne
     //TODO: Pomyslec juz powoli o koszyku i o dodawaniu zamowien i zliczaniu
     //TODO: Przemyslec jak z frontem ma to wygladac dla uzytkownika
     @GetMapping("/booking")
