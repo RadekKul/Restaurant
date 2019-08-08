@@ -12,4 +12,5 @@ public interface BillRepository extends JpaRepository<Bill,Long> {
     Bill findById(long id);
 
     List<Bill> findAllByPlaceId(long id);
+
 }
